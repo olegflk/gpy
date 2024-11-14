@@ -1,35 +1,43 @@
-# подключаем библиотеки
-import PySimpleGUI as sg
+# подключаем библиотеки w
 import random
 
+import PySimpleGUI as sg
+
+
 # обрабатываем нажатие на кнопку
-def update():
-    # получаем новое случайное число
-    r = random.randint(1,100)
+def update():  # получаем новое случайное число
+    r = random.randint(1, 100)
     # получаем доступ к текстовому элементу
-    text_elem = window['-text-']
+    text_elem = window["-text-"]
     # выводим в него текст с новым числом
     text_elem.update("Результат: {}".format(r))
 
+
 # что будет внутри окна
 # первым описываем кнопку и сразу указываем размер шрифта
-layout = [[sg.Button('Новое число',enable_events=True, key='-FUNCTION-', font='Helvetica 24')],
-        # затем делаем текст
-        [sg.Text('Результат:', size=(25, 1), key='-text-', font='Helvetica 20')]]
+layout = [
+    [
+        sg.Button(
+            "Новое число", enable_events=True, key="-FUNCTION-", font="Helvetica 24"
+        )
+    ],
+    # затем делаем текст
+    [sg.Text("Результат:", size=(25, 1), key="-text-", font="Helvetica 20")],
+]
 
 # рисуем окно
-window = sg.Window('Генератор случайных чисел', layout, size=(250,100))
+window = sg.Window("Генератор случайных чисел", layout, size=(250, 100))
 
-# запускаем основной бесконечный цикл
+# запускае wм основной бесконечный цикл
 while True:
     # получаем события, произошедшие в окне
     event, values = window.read()
     # если нажали на крестик
-    if event in (sg.WIN_CLOSED, 'Exit'):
+    if event in (sg.WIN_CLOSED, "Exit"):
         # выходим из цикла
         break
     # если нажали на кнопку
-    if event == '-FUNCTION-':
+    if event == "-FUNCTION-":
         # запускаем связанную функцию
         update()
 
