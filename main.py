@@ -1,7 +1,6 @@
 # подключаем библиотеки w
 import random
 
-# tttttttttt
 import PySimpleGUI as sg
 
 
